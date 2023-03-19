@@ -97,6 +97,26 @@ public class Validari {
         return value_pacient.equals("0") && value_medic.equals("0");
     }
 
+    public static boolean esteCodUnic(String input){
+        String value_cod = " ";
+        try {
+            Connection connection = jdbcPosgreSQLConexiune.getConexiune();
+            PreparedStatement pstmt;
+            ResultSet rs;
+
+            pstmt = connection.prepareStatement("SELECT COUNT(*) FROM rezultatanaliza WHERE cod = ?");
+            pstmt.setString(1,input);
+            rs = pstmt.executeQuery();
+            if(rs.next())
+                value_cod = rs.getString(1);
+
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+
+        return value_cod.equals("0");
+    }
+
     //obligativitate
     public static boolean nuEsteGol(String input){
         return ! input.isBlank() && ! input.isEmpty();

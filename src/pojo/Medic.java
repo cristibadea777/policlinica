@@ -57,6 +57,19 @@ public class Medic extends Persoana{
         this.programari = programari;
     }
 
+    //id, nume, prenume, varsta, nrtelefon, cnp, email, img, specializari, fise_consultatie, programari
+    public Medic(long medicId, String nume, String prenume, long varsta, String nrtelefon, String cnp, String email, String img, List<Specializare> specializari, List<FisaConsultatie> fise_consultatie, List<Programare> programari) {
+        super(nume, prenume, varsta, nrtelefon, cnp, email, img);
+        this.medicId = medicId;
+        this.specializari = specializari;
+        this.fise_consultatie = fise_consultatie;
+        this.programari = programari;
+    }
+
+    public Medic(String nume, String prenume, long varsta, String nrtelefon, String cnp, String email, String img) {
+        super(nume, prenume, varsta, nrtelefon, cnp, email, img);
+    }
+
     public Medic() {
     }
 

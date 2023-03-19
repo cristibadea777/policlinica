@@ -21,7 +21,7 @@ CREATE TABLE medic(
 );
 
 CREATE TABLE fisaconsultatie(
-	fisaconsultatieid	INT				NOT NULL 	PRIMARY KEY,
+	fisaconsultatieid	SERIAL			NOT NULL 	PRIMARY KEY,
 	pacientId			INT				NOT NULL,
 	medicId 			INT 			NOT NULL,
 	diagnostic			VARCHAR(255)	NOT NULL
@@ -31,7 +31,7 @@ CREATE TABLE rezultatanaliza(
 	rezultatanalizaid	SERIAL 			NOT NULL 	PRIMARY KEY,
 	pacientId			INT				NOT NULL,
 	rezultat			VARCHAR(255)	NOT NULL,
-	cod 				VARCHAR(255)	NOT NULL
+	cod 				VARCHAR(255)	NOT NULL	UNIQUE
 );
 
 CREATE TABLE programare_analize(
@@ -77,7 +77,6 @@ CREATE TABLE fisaconsultatie_analize(
 	analizaid			INT		NOT NULL,
 	PRIMARY KEY (fisaconsultatieid, analizaid)
 );
-
 						 
 ALTER TABLE fisaconsultatie_analize 
 	ADD CONSTRAINT fk_fisaconsultatie

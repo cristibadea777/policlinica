@@ -8,10 +8,10 @@ import java.util.List;
 
 public class Programare {
     private long programareId;
-    private Pacient pacientId;
-    private Specializare specializareId;
+    private long pacientId;
+    private long specializareId;
     List<Analiza> analize = new ArrayList<Analiza>();
-    private Medic medicId;
+    private long medicId;
     private Date date;
     private String stare;
 
@@ -25,19 +25,19 @@ public class Programare {
         this.programareId = programareId;
     }
 
-    public Pacient getPacientId() {
+    public long getPacientId() {
         return pacientId;
     }
 
-    public void setPacientId(Pacient pacientId) {
+    public void setPacientId(long pacientId) {
         this.pacientId = pacientId;
     }
 
-    public Specializare getSpecializareId() {
+    public long getSpecializareId() {
         return specializareId;
     }
 
-    public void setSpecializareId(Specializare specializareId) {
+    public void setSpecializareId(long specializareId) {
         this.specializareId = specializareId;
     }
 
@@ -49,11 +49,11 @@ public class Programare {
         this.analize = analize;
     }
 
-    public Medic getMedicId() {
+    public long getMedicId() {
         return medicId;
     }
 
-    public void setMedicId(Medic medicId) {
+    public void setMedicId(long medicId) {
         this.medicId = medicId;
     }
 
@@ -79,7 +79,7 @@ public class Programare {
             throw new IllegalArgumentException("Introdu o stare valida");
     }
 
-    public Programare(long programareId, Pacient pacientId, Specializare specializareId, List<Analiza> analize, Medic medicId, Date date, String stare) {
+    public Programare(long programareId, long pacientId, long specializareId, List<Analiza> analize, long medicId, Date date, String stare) {
         this.programareId = programareId;
         this.pacientId = pacientId;
         this.specializareId = specializareId;
@@ -89,7 +89,7 @@ public class Programare {
         this.stare = stare;
     }
 
-    public Programare(Pacient pacientId, Specializare specializareId, List<Analiza> analize, Medic medicId, Date date, String stare) {
+    public Programare(long pacientId, long specializareId, List<Analiza> analize, long medicId, Date date, String stare) {
         this.pacientId = pacientId;
         this.specializareId = specializareId;
         this.analize = analize;

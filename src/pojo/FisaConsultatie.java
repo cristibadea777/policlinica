@@ -7,8 +7,8 @@ import java.util.List;
 
 public class FisaConsultatie {
     private long fisaConsultatieId;
-    private Pacient pacientId;
-    private Medic medicId;
+    private long pacientId;
+    private long medicId;
     private String diagnostic;
     private List<String> medicamente = new ArrayList<String>();
     private List<Analiza> analizeDeEfectuat = new ArrayList<Analiza>();
@@ -19,11 +19,11 @@ public class FisaConsultatie {
         return fisaConsultatieId;
     }
 
-    public Pacient getPacientId() {
+    public long getPacientId() {
         return pacientId;
     }
 
-    public Medic getMedicId() {
+    public long getMedicId() {
         return medicId;
     }
 
@@ -43,11 +43,11 @@ public class FisaConsultatie {
         this.fisaConsultatieId = fisaConsultatieId;
     }
 
-    public void setPacientId(Pacient pacientId) {
+    public void setPacientId(long pacientId) {
         this.pacientId = pacientId;
     }
 
-    public void setMedicId(Medic medicId) {
+    public void setMedicId(long medicId) {
         this.medicId = medicId;
     }
 
@@ -65,8 +65,8 @@ public class FisaConsultatie {
     public void setAnalizeDeEfectuat(List<Analiza> analizeDeEfectuat) {
         this.analizeDeEfectuat = analizeDeEfectuat;
     }
-
-    public FisaConsultatie(long fisaConsultatieId, Pacient pacientId, Medic medicId, String diagnostic, List<String> medicamente, List<Analiza> analizeDeEfectuat) {
+//long, pacient, medic, string list, list
+    public FisaConsultatie(long fisaConsultatieId, long pacientId, long medicId, String diagnostic, List<String> medicamente, List<Analiza> analizeDeEfectuat) {
         this.fisaConsultatieId = fisaConsultatieId;
         this.pacientId = pacientId;
         this.medicId = medicId;
@@ -75,7 +75,7 @@ public class FisaConsultatie {
         this.analizeDeEfectuat = analizeDeEfectuat;
     }
 
-    public FisaConsultatie(Pacient pacientId, Medic medicId, String diagnostic, List<String> medicamente, List<Analiza> analizeDeEfectuat) {
+    public FisaConsultatie(long pacientId, long medicId, String diagnostic, List<String> medicamente, List<Analiza> analizeDeEfectuat) {
         this.pacientId = pacientId;
         this.medicId = medicId;
         this.diagnostic = diagnostic;

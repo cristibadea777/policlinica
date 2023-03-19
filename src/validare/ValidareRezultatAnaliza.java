@@ -7,7 +7,7 @@ public class ValidareRezultatAnaliza {
         return nuEsteGol(input);
     }
     public  boolean esteCodValid(String input){
-        return nuEsteGol(input);
+        return nuEsteGol(input) && esteCodUnic(input);
     }
 
 }
