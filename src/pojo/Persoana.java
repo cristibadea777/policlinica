@@ -1,5 +1,7 @@
 package pojo;
 
+import validare.ValidarePersoana;
+
 public class Persoana {
     private String nume;
     private String prenume;
@@ -9,12 +11,17 @@ public class Persoana {
     private String email;
     private String img;
 
+    private ValidarePersoana validarePersoana;
+
     public String getNume() {
         return nume;
     }
 
     public void setNume(String nume) {
-        this.nume = nume;
+        if(validarePersoana.esteValidNume(nume))
+            this.nume = nume;
+        else
+            throw new IllegalArgumentException("Introdu un nume valid");
     }
 
     public String getPrenume() {
@@ -22,7 +29,10 @@ public class Persoana {
     }
 
     public void setPrenume(String prenume) {
-        this.prenume = prenume;
+        if(validarePersoana.esteValidNume(nume))
+            this.prenume = prenume;
+        else
+            throw new IllegalArgumentException("Introdu un prenume valid");
     }
 
     public long getVarsta() {
@@ -30,7 +40,10 @@ public class Persoana {
     }
 
     public void setVarsta(long varsta) {
-        this.varsta = varsta;
+        if(validarePersoana.esteValidVarsta(String.valueOf(varsta)))
+            this.varsta = varsta;
+        else
+            throw new IllegalArgumentException("Introdu o varsta valida");
     }
 
     public String getNrtelefon() {
@@ -38,7 +51,10 @@ public class Persoana {
     }
 
     public void setNrtelefon(String nrtelefon) {
-        this.nrtelefon = nrtelefon;
+        if(validarePersoana.esteValidTelefon(nrtelefon))
+            this.nrtelefon = nrtelefon;
+        else
+            throw new IllegalArgumentException("Introdu un numar de telefon valid");
     }
 
     public String getCnp() {
@@ -46,7 +62,10 @@ public class Persoana {
     }
 
     public void setCnp(String cnp) {
-        this.cnp = cnp;
+        if(validarePersoana.esteValidCNP(cnp))
+            this.cnp = cnp;
+        else
+            throw new IllegalArgumentException("Introdu un CNP valid");
     }
 
     public String getEmail() {
@@ -54,7 +73,10 @@ public class Persoana {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        if(validarePersoana.esteValidEmail(email))
+            this.email = email;
+        else
+            throw new IllegalArgumentException("Introdu un email valid");
     }
 
     public String getImg() {

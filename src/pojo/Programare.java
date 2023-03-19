@@ -1,5 +1,7 @@
 package pojo;
 
+import validare.ValidareProgramare;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -12,6 +14,8 @@ public class Programare {
     private Medic medicId;
     private Date date;
     private String stare;
+
+    private ValidareProgramare validareProgramare;
 
     public long getProgramareId() {
         return programareId;
@@ -58,7 +62,10 @@ public class Programare {
     }
 
     public void setDate(Date date) {
-        this.date = date;
+        if(validareProgramare.esteDataValida(String.valueOf(date)))
+            this.date = date;
+        else
+            throw new IllegalArgumentException("Introdu o data valida, si din viitor");
     }
 
     public String getStare() {
@@ -66,7 +73,10 @@ public class Programare {
     }
 
     public void setStare(String stare) {
-        this.stare = stare;
+        if(validareProgramare.esteStareValida(stare))
+            this.stare = stare;
+        else
+            throw new IllegalArgumentException("Introdu o stare valida");
     }
 
     public Programare(long programareId, Pacient pacientId, Specializare specializareId, List<Analiza> analize, Medic medicId, Date date, String stare) {

@@ -1,14 +1,18 @@
 package pojo;
 
+import validare.ValidareRezultatAnaliza;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class RezultatAnalize {
+public class RezultatAnaliza {
     private long rezultatAnalizaId;
     private Pacient pacientId;
     private String rezultat;
     private List<Analiza> analize = new ArrayList<Analiza>();
     private String cod;
+
+    private ValidareRezultatAnaliza validareRezultatAnaliza;
 
     public long getRezultatAnalizaId() {
         return rezultatAnalizaId;
@@ -31,7 +35,10 @@ public class RezultatAnalize {
     }
 
     public void setRezultat(String rezultat) {
-        this.rezultat = rezultat;
+        if(validareRezultatAnaliza.esteRezultatValid(rezultat))
+            this.rezultat = rezultat;
+        else
+            throw new IllegalArgumentException("Introdu un rezultat");
     }
 
     public List<Analiza> getAnalize() {
@@ -47,10 +54,13 @@ public class RezultatAnalize {
     }
 
     public void setCod(String cod) {
-        this.cod = cod;
+        if(validareRezultatAnaliza.esteCodValid(cod))
+            this.cod = cod;
+        else
+            throw new IllegalArgumentException("Introdu un cod");
     }
 
-    public RezultatAnalize(long rezultatAnalizaId, Pacient pacientId, String rezultat, List<Analiza> analize, String cod) {
+    public RezultatAnaliza(long rezultatAnalizaId, Pacient pacientId, String rezultat, List<Analiza> analize, String cod) {
         this.rezultatAnalizaId = rezultatAnalizaId;
         this.pacientId = pacientId;
         this.rezultat = rezultat;
@@ -58,14 +68,14 @@ public class RezultatAnalize {
         this.cod = cod;
     }
 
-    public RezultatAnalize(Pacient pacientId, String rezultat, List<Analiza> analize, String cod) {
+    public RezultatAnaliza(Pacient pacientId, String rezultat, List<Analiza> analize, String cod) {
         this.pacientId = pacientId;
         this.rezultat = rezultat;
         this.analize = analize;
         this.cod = cod;
     }
 
-    public RezultatAnalize() {
+    public RezultatAnaliza() {
     }
 
     @Override

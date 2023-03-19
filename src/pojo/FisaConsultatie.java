@@ -1,5 +1,7 @@
 package pojo;
 
+import validare.ValidareFisaConsultatie;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,8 +10,10 @@ public class FisaConsultatie {
     private Pacient pacientId;
     private Medic medicId;
     private String diagnostic;
-    private List<String> medicamente = new ArrayList<String>();;
+    private List<String> medicamente = new ArrayList<String>();
     private List<Analiza> analizeDeEfectuat = new ArrayList<Analiza>();
+
+    private ValidareFisaConsultatie validareFisaConsultatie;
 
     public long getFisaConsultatieId() {
         return fisaConsultatieId;
@@ -48,7 +52,10 @@ public class FisaConsultatie {
     }
 
     public void setDiagnostic(String diagnostic) {
-        this.diagnostic = diagnostic;
+        if(validareFisaConsultatie.esteDiagnosticValid(diagnostic))
+            this.diagnostic = diagnostic;
+        else
+            throw new IllegalArgumentException("Introdu un diagnostic valid");
     }
 
     public void setMedicamente(List<String> medicamente) {

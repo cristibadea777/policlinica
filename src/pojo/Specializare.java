@@ -1,8 +1,12 @@
 package pojo;
 
+import validare.ValidareSpecializare;
+
 public class Specializare {
     private long specializareId;
     private String numeSpecializare;
+
+    private ValidareSpecializare validareSpecializare;
 
     public long getSpecializareId() {
         return specializareId;
@@ -17,7 +21,10 @@ public class Specializare {
     }
 
     public void setNumeSpecializare(String numeSpecializare) {
-        this.numeSpecializare = numeSpecializare;
+        if(validareSpecializare.esteNumeSpecializareValid(numeSpecializare))
+            this.numeSpecializare = numeSpecializare;
+        else
+            throw new IllegalArgumentException("Introdu un nume de specializare valid");
     }
 
     public Specializare(long specializareId, String numeSpecializare) {

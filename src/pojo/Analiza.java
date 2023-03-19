@@ -1,9 +1,13 @@
 package pojo;
 
+import validare.ValidareAnaliza;
+
 public class Analiza {
     private long analizaId;
     private String numeAnaliza;
     private long pret;
+
+    private ValidareAnaliza validareAnaliza;
 
     public long getAnalizaId() {
         return analizaId;
@@ -22,11 +26,18 @@ public class Analiza {
     }
 
     public void setNumeAnaliza(String numeAnaliza) {
-        this.numeAnaliza = numeAnaliza;
+        //validare nume analiza
+        if(validareAnaliza.esteNumeAnalizaValid(numeAnaliza))
+            this.numeAnaliza = numeAnaliza;
+        else
+            throw new IllegalArgumentException("Introdu un nume valid pentru analiza");
     }
 
     public void setPret(long pret) {
-        this.pret = pret;
+        if(validareAnaliza.estePretValid(String.valueOf(pret)))
+            this.pret = pret;
+        else
+            throw new IllegalArgumentException("Introdu un pret valid pentru analiza");
     }
 
     public Analiza(long analizaId, String numeAnaliza, long pret) {
