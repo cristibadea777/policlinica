@@ -11,7 +11,7 @@ public class Persoana {
     private String email;
     private String img;
 
-    private ValidarePersoana validarePersoana;
+    private ValidarePersoana validarePersoana = new ValidarePersoana();
 
     public String getNume() {
         return nume;
