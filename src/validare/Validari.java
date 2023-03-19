@@ -1,10 +1,17 @@
 package validare;
 
+import postgresql.JDBCPosgreSQLConexiune;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.List;
 
 public class Validari {
+
+    private static JDBCPosgreSQLConexiune jdbcPosgreSQLConexiune = new JDBCPosgreSQLConexiune();
 
     //doar numere
     public static boolean contineDoarNumere(String input){
@@ -35,9 +42,61 @@ public class Validari {
         return true;
     }
     //unicitate
-    public static boolean esteUnic(List lista, String input){
-        return ! lista.contains(input);
+    public static boolean esteEmailUnic(String input){
+        String value_pacient = " ";
+        String value_medic = " ";
+        try {
+            Connection connection = jdbcPosgreSQLConexiune.getConexiune();
+            PreparedStatement pstmt;
+            ResultSet rs;
+
+            pstmt = connection.prepareStatement("SELECT COUNT(*) FROM pacient WHERE email = ?");
+            pstmt.setString(1,input);
+            rs = pstmt.executeQuery();
+            if(rs.next())
+                value_pacient = rs.getString(1);
+
+            pstmt = connection.prepareStatement("SELECT COUNT(*) FROM medic WHERE email = ?");
+            pstmt.setString(1,input);
+            rs = pstmt.executeQuery();
+            if(rs.next())
+                value_medic = rs.getString(1);
+
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+
+        return value_pacient.equals("0") && value_medic.equals("0");
+
     }
+
+    public static boolean esteCNPUnic(String input){
+        String value_pacient = " ";
+        String value_medic = " ";
+        try {
+            Connection connection = jdbcPosgreSQLConexiune.getConexiune();
+            PreparedStatement pstmt;
+            ResultSet rs;
+
+            pstmt = connection.prepareStatement("SELECT COUNT(*) FROM pacient WHERE cnp = ?");
+            pstmt.setString(1,input);
+            rs = pstmt.executeQuery();
+            if(rs.next())
+                value_pacient = rs.getString(1);
+
+            pstmt = connection.prepareStatement("SELECT COUNT(*) FROM medic WHERE cnp = ?");
+            pstmt.setString(1,input);
+            rs = pstmt.executeQuery();
+            if(rs.next())
+                value_medic = rs.getString(1);
+
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+
+        return value_pacient.equals("0") && value_medic.equals("0");
+    }
+
     //obligativitate
     public static boolean nuEsteGol(String input){
         return ! input.isBlank() && ! input.isEmpty();
