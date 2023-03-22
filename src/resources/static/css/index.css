@@ -87,6 +87,7 @@ input, select {
     border:      0.3vh solid black;
 }
 .info-programare label{
+    margin-right: 1vw;
 }
 .info-programare .div-buton button:hover{
     transform:          scale(1.07);
