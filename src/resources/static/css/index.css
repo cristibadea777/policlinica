@@ -1,0 +1,131 @@
+body{
+    background:         darkslategray;
+    margin:             0;
+    font-family:        "SansSerif";
+    font-size:          1vw;
+    display:            flex;
+    align-items:        center;
+    justify-content:    center;
+}
+
+input, select {
+    background:         transparent;
+    background-color:   darkslategrey;
+    border:             none;
+    border-bottom:      1px solid #000000;
+    border-color:       deepskyblue;
+    color:              cyan;
+}
+
+
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+.container-principal{
+    display:                grid;
+    min-height:             100vh;
+    grid-template-columns:  1fr 1fr;
+    grid-template-rows:     auto 1fr auto;
+    grid-template-areas:    "titlu	        titlu"
+                            "info-pacient	info-programare"
+	                        "info-pacient	info-programare";
+}
+.info-pacient{
+    grid-area:          info-pacient;
+}
+.info-pacient .div-info p{
+    margin-left:        7vw;
+}
+#titlu-pagina{
+    grid-area:          titlu;
+    font-size:          1vw;
+}
+.titlu {
+    display:            flex;
+    font-size:          1.7vw;
+    justify-content:    center;
+    align-items:        center;
+    color:              deepskyblue;
+}
+.div-centrat{
+    display:            flex;
+    justify-content:    center;
+}
+.div-info label{
+    display:           inline-block;
+    width:             7vw;
+    font-size:         1.3vw;
+    white-space:       nowrap;
+    color:             ghostwhite;
+}
+.div-info input, select{
+    font-size:          1.3vw;
+    margin-bottom:      0.7vw;
+    text-align:         center;
+    width:              17vw;
+    box-sizing:         border-box;
+}
+.info-programare{
+    grid-area:          info-programare;
+    margin-left:        7vw;
+}
+.info-programare .div-info p{
+    margin-left:        7vw;
+}
+.info-programare .div-buton{
+    display:            flex;
+    align-items:        center;
+    justify-content:    center;
+}
+.info-programare .div-buton button{
+    height:             auto;
+    width:              auto;
+    text-align:         center;
+    font-size:          3vw;
+    color:              black;
+    background-color:   #558f8f;
+    border:      0.3vh solid black;
+}
+.info-programare label{
+}
+.info-programare .div-buton button:hover{
+    transform:          scale(1.07);
+}
+textarea:focus, input:focus, select:focus{
+    outline:            none;
+}
+.div-info i{
+    visibility:         hidden;
+}
+.div-info p{
+    visibility:         hidden;
+}
+.eroare input{
+    border-bottom:      0.3vw solid red;
+}
+.eroare i{
+    visibility:         visible;
+    color:              red;
+}
+.eroare p{
+    visibility:         visible;
+    color:              red;
+}
+.eroareDDL select{
+    border-bottom:      0.3vw solid red;
+}
+.eroareDDL i{
+    visibility:         visible;
+    color:              red;
+}
+.eroareDDL p{
+    visibility:         visible;
+    color:              red;
+}
+.succes i{
+    color:              mediumseagreen;
+}
+.succes p{
+    visibility:         hidden;
+}

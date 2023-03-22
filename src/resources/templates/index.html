@@ -1,10 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Programare nouă</title>
+    <link type="text/css" rel="stylesheet" href="/src/resources/static/css/index.css">
+    <script type="text/javascript" src="/src/resources/static/js/index.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 </head>
+
 <body>
+<form id="formProgramareNoua" name="formProgramareNoua" method="post" autocomplete="off">
+    <div class="container-principal">
+        <div class="titlu" id="titlu-pagina">
+            <h1>Formular cerere programare</h1>
+        </div>
+
+
+        <div class="info-pacient div-centrat">
+
+            <div id="container-info-pacient">
+
+                <div class="titlu">
+                    <h4>Detalii Pacient</h4>
+                </div>
+
+                <div class="div-info">
+                    <label for="nume">Nume:</label>
+                    <input type="text" id="nume" name="nume">
+                    <i class="fa-solid fa-check"></i>
+                    <p>Mesaj eroare</p>
+                </div>
+                <div class="div-info">
+                    <label for="prenume">Prenume:</label>
+                    <input type="text" id="prenume" name="prenume">
+                    <i class="fa-solid fa-check"></i>
+                    <p>Mesaj eroare</p>
+                </div>
+                <div class="div-info">
+                    <label for="varsta">Vârstă:</label>
+                    <input type="text" id="varsta" name="varsta">
+                    <i class="fa-solid fa-check"></i>
+                    <p>Mesaj eroare</p>
+                </div>
+                <div class="div-info">
+                    <label for="nrtelefon">Nr Telefon:</label>
+                    <input type="text" id="nrtelefon" name="nrtelefon">
+                    <i class="fa-solid fa-check"></i>
+                    <p>Mesaj eroare</p>
+                </div>
+                <div class="div-info">
+                    <label for="cnp">CNP:</label>
+                    <input type="text" id="cnp" name="cnp">
+                    <i class="fa-solid fa-check"></i>
+                    <p>Mesaj eroare</p>
+                </div>
+                <div class="div-info">
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="email">
+                    <i class="fa-solid fa-check"></i>
+                    <p>Mesaj eroare</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="info-programare div-centrat">
+            <div id="container-info-programare">
+
+                <div class="titlu">
+                    <h4>Detalii Programare</h4>
+                </div>
+
+                <div class="div-info">
+                    <label for="select-specializare">Specializare:</label>
+                    <select id="select-specializare" name="select-specializare">
+                        <option value="0" selected></option>
+                    </select>
+                    <i class="fa-solid fa-check"></i>
+                    <p>Mesaj eroare</p>
+                </div>
+                <div class="div-info">
+                    <label for="select-medic">Medic:</label>
+                    <select id="select-medic" name="select-medic">
+                        <option value="0" selected></option>
+                    </select>
+                    <i class="fa-solid fa-check"></i>
+                    <p>Mesaj eroare</p>
+                </div>
+                <div class="div-info">
+                    <label for="data_programare">Data și Ora:</label>
+                    <input type="datetime-local" id="data_programare" name="data_programare">
+                    <i class="fa-solid fa-check"></i>
+                    <p>Mesaj eroare</p>
+                </div>
+                <div class="div-buton">
+                    <button>OK</button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</form>
+
+
 
 </body>
+
 </html>
