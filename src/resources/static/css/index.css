@@ -124,6 +124,7 @@ textarea:focus, input:focus, select:focus{
 }
 .succes i{
     color:              mediumseagreen;
+    visibility:         visible;
 }
 .succes p{
     visibility:         hidden;
